@@ -10,105 +10,21 @@
 
 <body>
     <h1>Etch-a-Sketch Spinoff</h1>
-    <button>Generate grid</button>
+    <button>(Re)generate grid</button>
     <div class="container">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    <!-- <script>
-        window.onload = (event) => {
-            const getGridSize = parseInt(prompt("What grid size do you want for the sketchpad\n(e.g., 16 x 16)?", 16))
-        }
-const container = document.querySelector("#container");
-
-    </script> -->
+    </div>
+    <script>
+        const gridButton = document.querySelector("button");
+        const container = document.querySelector(".container");
+        gridButton.addEventListener("click", function () {
+            const gridSize = parseInt(prompt("Please enter a number of total squares in the container:", 50));
+            for (let i = 0; i < gridSize; i++) {
+                const square = document.createElement("div");
+                square.classList.toggle("square");
+                container.appendChild(square);
+            }
+        })
+    </script>
 </body>
 
 </html>
