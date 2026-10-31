@@ -16,9 +16,12 @@
     <script>
         const gridButton = document.querySelector("button");
         const container = document.querySelector(".container");
-        gridButton.addEventListener("click", function () {    
+        gridButton.addEventListener("click", function () {
+            if (container.innerHTML != "") {
+                container.innerHTML = "";
+            }
             const gridSize = parseInt(prompt("Please enter a number of total squares in the container:", 40));
-            if (gridSize >= 100) {alert("Please enter a number smaller than 100!")} else { 
+            if (gridSize > 100) {alert("Please enter a number smaller than or equal to 100!")} else { 
             for (let i = 0; i < (gridSize * gridSize); i++) {
                 const square = document.createElement("div");
                 square.classList.toggle("square");
