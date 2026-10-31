@@ -17,16 +17,13 @@ button {
 .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: flex-start;
     border: 2px solid red;
-    width: 1000px;
-    height: 580px;
+    width: 637px;
+    height: 669px;
     margin: 25px auto;
 }
 
 
 .square {
-    flex: 1 1 auto;
     border: 1px solid rgb(0, 0, 0);
 }
