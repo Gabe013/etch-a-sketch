@@ -16,8 +16,8 @@
     <script>
         const gridButton = document.querySelector("button");
         const container = document.querySelector(".container");
-        gridButton.addEventListener("click", function () {
-            if (container.innerHTML != "") {
+        gridButton.addEventListener("click", () => {
+            if (container.innerHTML != "" ) {
                 container.innerHTML = "";
             }
             const gridSize = parseInt(prompt("Please enter a number of total squares in the container:", 40));
@@ -30,7 +30,13 @@
                 square.style.height = squareSize + "px";
                 container.appendChild(square);
             }}
-        });
+            const allSquares = container.childNodes;
+            allSquares.forEach((square) => {
+            square.addEventListener("mouseenter", (event) => {
+                event.target.style.backgroundColor = "yellow";
+            }
+        );
+        })});
     </script>
 </body>
 
