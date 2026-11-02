@@ -17,26 +17,40 @@
         const gridButton = document.querySelector("button");
         const container = document.querySelector(".container");
         gridButton.addEventListener("click", () => {
-            if (container.innerHTML != "" ) {
+            if (container.innerHTML != "") {
                 container.innerHTML = "";
             }
             const gridSize = parseInt(prompt("Please enter a number of total squares in the container:", 40));
-            if (gridSize > 100) {alert("Please enter a number smaller than or equal to 100!")} else { 
-            for (let i = 0; i < (gridSize * gridSize); i++) {
-                const square = document.createElement("div");
-                square.classList.toggle("square");
-                const squareSize = 650 / gridSize;
-                square.style.width = squareSize + "px";
-                square.style.height = squareSize + "px";
-                container.appendChild(square);
-            }}
+            if (gridSize > 100) { alert("Please enter a number smaller than or equal to 100!") } else {
+                for (let i = 0; i < (gridSize * gridSize); i++) {
+                    const square = document.createElement("div");
+                    square.classList.toggle("square");
+                    const squareSize = 650 / gridSize;
+                    square.style.width = squareSize + "px";
+                    square.style.height = squareSize + "px";
+                    square.style.opacity = "0.1";
+                    container.appendChild(square);
+                }
+            }
+            function getRandomRGB() {
+                const r = Math.floor(Math.random() * 256);
+                const g = Math.floor(Math.random() * 256);
+                const b = Math.floor(Math.random() * 256);
+                return `rgb(${r}, ${g}, ${b})`;
+            }
+
             const allSquares = container.childNodes;
             allSquares.forEach((square) => {
-            square.addEventListener("mouseenter", (event) => {
-                event.target.style.backgroundColor = "yellow";
-            }
-        );
-        })});
+                square.addEventListener("mouseenter", (event) => {
+                    const randomColor = getRandomRGB();
+                    event.target.style.backgroundColor = randomColor;
+                    let currentOpacity = parseFloat(square.style.opacity);
+                    if (currentOpacity < 1) {
+                        square.style.opacity = (currentOpacity + 0.1).toString();
+                    }
+                });
+            })
+        });
     </script>
 </body>
 
