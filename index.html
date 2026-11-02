@@ -42,8 +42,7 @@
             const allSquares = container.childNodes;
             allSquares.forEach((square) => {
                 square.addEventListener("mouseenter", (event) => {
-                    const randomColor = getRandomRGB();
-                    event.target.style.backgroundColor = randomColor;
+                    event.target.style.backgroundColor = getRandomRGB();
                     let currentOpacity = parseFloat(square.style.opacity);
                     if (currentOpacity < 1) {
                         square.style.opacity = (currentOpacity + 0.1).toString();
