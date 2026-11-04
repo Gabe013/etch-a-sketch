@@ -16,8 +16,9 @@
     <script>
         const gridButton = document.querySelector("button");
         const container = document.querySelector(".container");
+        let buttonClicked = false;
         gridButton.addEventListener("click", () => {
-            if (container.innerHTML != "") {
+            if (buttonClicked) {
                 container.innerHTML = "";
             }
             const gridSize = parseInt(prompt("Please enter a number of total squares in the container:", 40));
@@ -30,6 +31,7 @@
                     square.style.height = squareSize + "px";
                     square.style.opacity = "0.1";
                     container.appendChild(square);
+                    buttonClicked = true;
                 }
             }
             function getRandomRGB() {
