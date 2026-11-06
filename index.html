@@ -16,20 +16,21 @@
     <script>
         const gridButton = document.querySelector("button");
         const container = document.querySelector(".container");
+        const containerWidth = container.clientWidth;
         let buttonClicked = false;
         gridButton.addEventListener("click", () => {
             if (buttonClicked) {
                 container.innerHTML = "";
             }
-            const gridSize = parseInt(prompt("Please enter a number of total squares in the container:", 40));
-            if (gridSize > 100) { alert("Please enter a number smaller than or equal to 100!") } else {
+            let gridSize = Number(prompt("Please enter a whole number of total squares in the container divisible by 960:", 40));
+            if (!gridSize || gridSize < 0 || gridSize > 100 || !Number.isInteger(gridSize)) { alert("Please enter a whole number smaller than or equal to 100, but divisible by 960!") }
+            else if (containerWidth % gridSize !== 0) { alert("Please enter a number divisible by 960! E.g. 20, 40, 60, etc."); } else {
                 for (let i = 0; i < (gridSize * gridSize); i++) {
                     const square = document.createElement("div");
                     square.classList.toggle("square");
-                    const squareSize = 650 / gridSize;
-                    square.style.width = squareSize + "px";
-                    square.style.height = squareSize + "px";
-                    square.style.opacity = "0.1";
+                    square.style.width = `${containerWidth / gridSize}px`;
+                    square.style.height = `${containerWidth / gridSize}px`;
+                    square.style.opacity = 0.1;
                     container.appendChild(square);
                     buttonClicked = true;
                 }
@@ -45,9 +46,9 @@
             allSquares.forEach((square) => {
                 square.addEventListener("mouseenter", (event) => {
                     event.target.style.backgroundColor = getRandomRGB();
-                    let currentOpacity = parseFloat(square.style.opacity);
+                    let currentOpacity = parseFloat(square.style.opacity); // creating a floating point value out of the opacity value for the next line of code
                     if (currentOpacity < 1) {
-                        square.style.opacity = (currentOpacity + 0.1).toString();
+                        square.style.opacity = (currentOpacity + 0.1); // removed the .toString() method from the original code, why would it be there?!
                     }
                 });
             })

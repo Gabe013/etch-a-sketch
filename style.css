@@ -1,7 +1,3 @@
-* {
-    box-sizing: border-box;
-}
-
 h1 {
     text-align: center;
 }
@@ -17,13 +13,14 @@ button {
 .container {
     display: flex;
     flex-wrap: wrap;
-    border: 2px solid red;
-    width: 637px;
-    height: 669px;
+    width: 960px;
+    border: 2px solid rgb(27, 25, 25);
+    aspect-ratio: 1/1;
     margin: 25px auto;
 }
 
 
 .square {
-    border: 1px solid rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    box-sizing: border-box;
 }
