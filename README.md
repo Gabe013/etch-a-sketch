@@ -20,3 +20,5 @@ const randomColor = getRandomRGB();
       }            
 ```
 CSS taken from [MikeNewXYZ's Codepen project](https://codepen.io/MikeNewXYZ/pen/GRbedva) based on [this Reddit thread and answer](https://www.reddit.com/r/css/s/JXKDTQL98P) (found it myself ;) for a better layout solution and the `clientWidth` JS property for DOM manipulation in the script itself
+
+Thanks to MikeNEWXYZ and captainnairauk for the code, I couldn't have done this one without it, really! :D
